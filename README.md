@@ -1,131 +1,36 @@
-# Sabi-T Tutor
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Sabi-T is an AI-powered learning app that helps users learn digital and vocational skills in English and local Nigerian languages.  
-It combines guided chat tutoring, quiz generation/evaluation, and progress tracking.
+## Getting Started
 
-## Features
-
-- Firebase authentication (sign up, login, protected routes)
-- Skill and language selection flow
-- AI tutor chat experience
-- AI-generated quiz questions and answer evaluation
-- User progress tracking in Firestore (lessons completed + quiz score)
-- Dashboard for learning progress
-
-## Tech Stack
-
-- Next.js 16 (App Router)
-- React 19 + TypeScript
-- Firebase Auth + Firestore
-- Google Gemini API (`@google/genai`)
-- Tailwind CSS 4
-
-## Project Structure
-
-```txt
-src/
-  app/
-    api/
-      chat/route.ts
-      quiz/generate/route.ts
-      quiz/evaluate/route.ts
-    dashboard/page.tsx
-    language/page.tsx
-    learn/page.tsx
-    login/page.tsx
-    quiz/page.tsx
-    signup/page.tsx
-    skills/page.tsx
-  components/
-  contexts/
-  lib/
-```
-
-## Prerequisites
-
-- Node.js 20+
-- npm 10+
-- A Firebase project with:
-  - Email/Password auth enabled
-  - Firestore database enabled
-- A Gemini API key
-
-## Environment Variables
-
-Create a `.env.local` file in the project root:
-
-```bash
-NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
-
-GEMINI_API_KEY=your_gemini_api_key
-# Optional
-GEMINI_MODEL=gemini-2.5-flash
-```
-
-## Installation
-
-```bash
-npm install
-```
-
-## Run Locally
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Available Scripts
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- `npm run dev` - start development server
-- `npm run build` - create production build
-- `npm run start` - run production server
-- `npm run lint` - run ESLint
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## API Endpoints
+## Learn More
 
-- `POST /api/chat`  
-  Generates tutor responses based on chat history, selected skill, and delivery language.
+To learn more about Next.js, take a look at the following resources:
 
-- `POST /api/quiz/generate`  
-  Generates a beginner-friendly quiz question for the selected skill/language.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- `POST /api/quiz/evaluate`  
-  Evaluates a learner answer and returns structured score + feedback.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Firebase Notes
+## Deploy on Vercel
 
-- Firestore collections used:
-  - `users/{userId}/profile/details`
-  - `users/{userId}/progress/{skillName}`
-- Ensure your Firestore security rules allow authenticated users to read/write their own profile and progress documents.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Deployment
-
-Deploy on Vercel (recommended) or any Node-compatible platform:
-
-1. Add all environment variables in your hosting dashboard.
-2. Run build command: `npm run build`
-3. Start command: `npm run start`
-
-## Troubleshooting
-
-- `FirebaseError: client is offline`:
-  - Check internet connection and browser network restrictions.
-  - Verify Firebase config values in `.env.local`.
-  - Ensure Firestore is enabled in your Firebase project.
-
-- Gemini errors:
-  - Confirm `GEMINI_API_KEY` is set.
-  - Confirm `GEMINI_MODEL` is valid (or omit it to use default).
-
-## License
-
-Define your project license here (e.g. MIT).
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
